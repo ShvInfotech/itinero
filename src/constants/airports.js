@@ -1,0 +1,58 @@
+export const AIRPORTS = [
+  {
+    id: "stv",
+    city: "Surat",
+    state: "Gujarat, India",
+    name: "Surat",
+    code: "STV",
+  },
+  {
+    id: "urt",
+    city: "Surat Thani",
+    state: "Thailand",
+    name: "Surat Thani",
+    code: "URT",
+  },
+  {
+    id: "usm",
+    city: "Ko Samui",
+    state: "Thailand",
+    name: "Ko Samui",
+    code: "USM",
+  },
+  {
+    id: "sub",
+    city: "Surabaya",
+    state: "East Java, Indonesia",
+    name: "Juanda",
+    code: "SUB",
+  },
+  {
+    id: "soc",
+    city: "Surakarta City",
+    state: "Central Java, Indonesia",
+    name: "Adi Sumarmo",
+    code: "SOC",
+  },
+  {
+    id: "nyc",
+    city: "New York",
+    state: "USA",
+    name: "John F. Kennedy",
+    code: "JFK",
+  },
+  {
+    id: "blr",
+    city: "Bengaluru",
+    state: "Karnataka, India",
+    name: "Kempegowda",
+    code: "BLR",
+  },
+  {
+    id: "lon",
+    city: "London",
+    state: "UK",
+    name: "Heathrow",
+    code: "LHR",
+  },
+];
