@@ -53,7 +53,7 @@ const LoginModal = ({ isOpen, onClose }) => {
   // Helper for step transitions
   const getStepClasses = (currentStep) => {
     const isActive = step === currentStep && isOpen;
-    return `absolute inset-0 flex items-center justify-center p-4 transition-all duration-500 ease-in-out ${
+    return `absolute inset-0 flex items-center justify-center p-0 md:p-4 transition-all duration-500 ease-in-out ${
       isActive ? 'opacity-100 z-10 scale-100' : 'opacity-0 -z-10 scale-95 pointer-events-none'
     }`;
   };
@@ -68,7 +68,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
       {/* STEP 1: MAIN */}
       <div className={getStepClasses('MAIN')}>
-        <div className="relative w-full max-w-[850px] bg-white rounded-[32px] shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[500px]">
+        <div className="relative w-full h-full md:h-auto max-w-[850px] bg-white rounded-none md:rounded-[32px] shadow-2xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row md:min-h-[500px] animate-slide-down-modal md:animate-none">
           
           {/* Close Button */}
           <button 
@@ -104,7 +104,7 @@ const LoginModal = ({ isOpen, onClose }) => {
             </div>
 
             {/* Decorative Illustration */}
-            <div className="mt-auto relative h-[180px] w-full pt-4 -mx-4 w-[calc(100%+32px)] overflow-hidden">
+            <div className="mt-auto relative h-[120px] md:h-[180px] w-full pt-4 -mx-4 w-[calc(100%+32px)] overflow-hidden">
                 <div className="absolute bottom-0 left-[-20%] right-[-20%] h-[120px] bg-gradient-to-t from-orange-50/80 to-transparent rounded-t-[100%]"></div>
                 <div className="absolute bottom-0 left-[-50%] right-[20%] h-[80px] bg-gradient-to-t from-orange-100/50 to-transparent rounded-t-[100%]"></div>
                 
@@ -193,7 +193,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
       {/* STEP 2: PHONE INPUT */}
       <div className={getStepClasses('PHONE')}>
-        <div className="relative w-full max-w-[450px] bg-white rounded-[32px] p-8 md:p-10 shadow-2xl">
+        <div className="relative w-full h-full md:h-auto max-w-[450px] bg-white rounded-none md:rounded-[32px] p-6 md:p-10 shadow-2xl overflow-y-auto animate-slide-down-modal md:animate-none">
           
           <div className="flex items-center justify-between mb-8">
             <button 
@@ -211,7 +211,7 @@ const LoginModal = ({ isOpen, onClose }) => {
             </button>
           </div>
 
-          <h2 className="text-[32px] leading-tight font-bold text-gray-900 mb-8">
+          <h2 className="text-[26px] md:text-[32px] leading-tight font-bold text-gray-900 mb-8">
             What's your phone<br />number?
           </h2>
 
@@ -247,7 +247,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
       {/* STEP 3: OTP VERIFICATION */}
       <div className={getStepClasses('OTP')}>
-        <div className="relative w-full max-w-[450px] bg-white rounded-[32px] p-8 md:p-10 shadow-2xl">
+        <div className="relative w-full h-full md:h-auto max-w-[450px] bg-white rounded-none md:rounded-[32px] p-6 md:p-10 shadow-2xl overflow-y-auto animate-slide-down-modal md:animate-none">
           
           <div className="flex items-center justify-between mb-2">
             <button 
@@ -303,11 +303,13 @@ const LoginModal = ({ isOpen, onClose }) => {
                 key={index}
                 ref={el => inputRefs.current[index] = el}
                 type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 maxLength="1"
                 value={otp[index]}
                 onChange={(e) => handleOtpChange(index, e.target.value)}
                 onKeyDown={(e) => handleOtpKeyDown(index, e)}
-                className="w-12 h-14 border border-gray-300 rounded-[10px] text-center text-xl font-bold text-gray-900 focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] outline-none transition-all"
+                className="aspect-square w-full max-w-[44px] md:max-w-[56px] border border-gray-300 rounded-[10px] text-center text-[18px] md:text-xl font-bold text-gray-900 focus:border-[#F97316] focus:ring-1 focus:ring-[#F97316] outline-none transition-all"
               />
             ))}
           </div>
@@ -327,7 +329,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
       {/* STEP 4: SETUP */}
       <div className={getStepClasses('SETUP')}>
-        <div className="relative w-full max-w-[450px] bg-white rounded-[32px] p-8 md:p-10 shadow-2xl">
+        <div className="relative w-full h-full md:h-auto max-w-[450px] bg-white rounded-none md:rounded-[32px] p-6 md:p-10 shadow-2xl overflow-y-auto animate-slide-down-modal md:animate-none">
           
           <div className="flex items-center justify-between mb-2">
             <button 

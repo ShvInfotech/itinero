@@ -25,11 +25,23 @@
 .navbar__inner {
   display: flex;
   align-items: center;
-  background-color: var(--color-white);
+  background-color: transparent;
   padding: 10px 0;
   border-radius: var(--radius-pill);
   transition: all 0.3s ease;
   border: 1px solid transparent;
+}
+
+/* ── Hamburger ───────────────────────────────────── */
+.navbar__hamburger {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 /* ── Logo ────────────────────────────────────────── */
@@ -288,8 +300,3 @@
   }
 }
 
-@media (max-width: 480px) {
-  .navbar__logo-text {
-    display: none;
-  }
-}

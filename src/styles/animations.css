@@ -159,3 +159,15 @@
 [data-delay="300"] { transition-delay: 0.3s; }
 [data-delay="400"] { transition-delay: 0.4s; }
 [data-delay="500"] { transition-delay: 0.5s; }
+
+@keyframes slideDownModal {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.animate-slide-down-modal {
+  animation: slideDownModal 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

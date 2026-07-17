@@ -92,3 +92,56 @@
   height: 22px;
   object-fit: contain;
 }
+
+/* ── Responsive Styles ───────────────────────────── */
+@media (max-width: 1024px) {
+  .newsletter__inner {
+    padding: 48px 40px;
+  }
+  .newsletter__title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    margin-bottom: 50px;
+  }
+  .newsletter__inner {
+    padding: 32px 24px;
+  }
+  .newsletter__title {
+    font-size: 26px;
+  }
+  .newsletter__subtitle {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .newsletter__form {
+    flex-direction: column;
+  }
+  .newsletter__input {
+    width: 100%;
+  }
+  .newsletter__btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter__inner {
+    padding: 24px 16px;
+  }
+  .newsletter__title {
+    font-size: 22px;
+  }
+  .newsletter__subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .newsletter__btn {
+    font-size: 16px;
+  }
+}

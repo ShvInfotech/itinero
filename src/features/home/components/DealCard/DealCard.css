@@ -196,6 +196,9 @@
   .deal-card__badge {
     margin-left: 15px;
   }
+  .deal-card__badge span {
+    font-size: 14px;
+  }
   .deal-card__city,
   .deal-card__route,
   .deal-card__destination,
@@ -203,5 +206,48 @@
   .deal-card__dates,
   .deal-card__cta {
     margin-left: 15px;
+  }
+  .deal-card__current-price {
+    font-size: 24px;
+  }
+  .deal-card__original-price {
+    font-size: 15px;
+    margin-top: 12px;
+  }
+  .deal-card__code {
+    font-size: 16px;
+  }
+  .deal-card__destination {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+  .deal-card__dates {
+    font-size: 14px;
+  }
+  .deal-card__arrow {
+    width: 20px;
+    height: 20px;
+    margin: 0 12px;
+  }
+  .deal-card__cta span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deal-card__city {
+    font-size: 20px;
+  }
+  .deal-card__current-price {
+    font-size: 22px;
+  }
+  .deal-card__code {
+    font-size: 14px;
+  }
+  .deal-card__destination {
+    font-size: 14px;
+  }
+  .deal-card__cta span {
+    font-size: 15px;
   }
 }

@@ -122,3 +122,59 @@
 .testimonial-card:hover .testimonial-card__quote {
   opacity: 0.3;
 }
+
+/* ── Responsive Styles ───────────────────────────── */
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: 16px 18px;
+    gap: 14px;
+  }
+  .testimonial-card__avatar {
+    width: 56px;
+    height: 56px;
+    margin-right: 12px;
+  }
+  .testimonial-card__name {
+    font-size: 18px;
+  }
+  .testimonial-card__location {
+    font-size: 14px;
+  }
+  .testimonial-card__review {
+    font-size: 14px;
+  }
+  .testimonial-card__rating {
+    font-size: 20px;
+  }
+  .testimonial-card__star {
+    width: 20px;
+    height: 28px;
+  }
+  .testimonial-card__quote {
+    width: 36px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    padding: 14px 14px;
+    gap: 12px;
+    border-radius: 16px;
+  }
+  .testimonial-card__avatar {
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+  }
+  .testimonial-card__name {
+    font-size: 16px;
+  }
+  .testimonial-card__location {
+    font-size: 13px;
+  }
+  .testimonial-card__review {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}

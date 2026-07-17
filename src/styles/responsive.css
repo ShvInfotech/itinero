@@ -67,3 +67,22 @@
     display: none !important;
   }
 }
+
+/* ── Extra-small phones (≤480px) ─────────────────── */
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 12px;
+    --space-section: 36px;
+  }
+}
+
+/* ── Image / overflow safety ─────────────────────── */
+img,
+video {
+  max-width: 100%;
+}
+
+/* Prevent horizontal scrollbar globally */
+html, body {
+  overflow-x: clip;
+}

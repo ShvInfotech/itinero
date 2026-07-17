@@ -46,61 +46,50 @@ const travelTools = [
 export default function AiTravelBuddy() {
   const scrollRef = useRef(null);
   const wrapperRef = useRef(null);
-  const [cardWidth, setCardWidth] = useState(0);
-
-  useEffect(() => {
-    const CARDS = 4; // Show 4 cards at a time
-    const PADDING = 53 * 2;
-    const GAP = 30; // gap-[30px]
-    const updateWidth = () => {
-      if (wrapperRef.current) {
-        const w = wrapperRef.current.clientWidth;
-        const width = (w - PADDING - GAP * (CARDS - 1)) / CARDS;
-        setCardWidth(Math.floor(width) - 1);
-      }
-    };
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -(cardWidth + 30), behavior: "smooth" });
+      const card = scrollRef.current.children[0];
+      const gap = window.innerWidth < 768 ? 16 : 30;
+      const scrollAmount = card ? card.clientWidth + gap : 300;
+      scrollRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: cardWidth + 30, behavior: "smooth" });
+      const card = scrollRef.current.children[0];
+      const gap = window.innerWidth < 768 ? 16 : 30;
+      const scrollAmount = card ? card.clientWidth + gap : 300;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
 
   return (
-    <div className="flex flex-col self-stretch max-w-[1604px] mb-[100px] mx-auto gap-[50px]">
-      <div className="flex justify-between items-center self-stretch px-[53px]">
-        <div className="flex flex-col shrink-0 items-start gap-2.5">
-          <span className="text-[#001438] text-[50px] font-bold leading-tight">
+    <div className="flex flex-col self-stretch max-w-[1604px] mb-[100px] mx-auto gap-[30px] md:gap-[50px]">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center self-stretch px-4 md:px-[53px] gap-6 md:gap-0">
+        <div className="flex flex-col shrink-0 items-start gap-2.5 w-full md:w-auto">
+          <span className="text-[#001438] text-[32px] md:text-[50px] font-bold leading-tight">
             Your Journey, Our Priority
           </span>
-          <span className="text-[#F97211] text-2xl font-medium w-[595px]">
+          <span className="text-[#F97211] text-[16px] md:text-2xl font-medium w-full max-w-[595px]">
             Experience smarter travel planning with powerful tools, curated options & expert support.
           </span>
         </div>
-        <div className="flex shrink-0 items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3 self-end md:self-auto">
           <button
             onClick={scrollLeft}
-            className="w-[50px] h-[50px] rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shadow-sm transition-colors"
+            className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shadow-sm transition-colors"
           >
-            <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
           </button>
           <button
             onClick={scrollRight}
-            className="w-[50px] h-[50px] rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shadow-sm transition-colors"
+            className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shadow-sm transition-colors"
           >
-            <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 md:w-6 md:h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </button>
@@ -111,27 +100,26 @@ export default function AiTravelBuddy() {
       <div className="overflow-hidden" ref={wrapperRef}>
         <div
           ref={scrollRef}
-          className="flex items-stretch overflow-x-auto gap-[30px] pb-[40px] pt-4 px-[53px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth"
+          className="flex items-stretch overflow-x-auto gap-4 md:gap-[30px] pb-[40px] pt-4 px-4 md:px-[53px] scroll-pl-4 md:scroll-pl-[53px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth snap-x snap-mandatory"
         >
           {travelTools.map((tool) => (
             <div
               key={tool.id}
-              className="flex flex-col shrink-0 bg-white py-7 rounded-[40px] hover:-translate-y-2 transition-transform cursor-pointer"
+              className="flex flex-col shrink-0 bg-white py-7 rounded-[40px] hover:-translate-y-2 transition-transform cursor-pointer snap-start w-[85%] sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-20px)] xl:w-[calc(25%-22.5px)]"
               style={{
-                width: cardWidth || "calc(25% - 22.5px)",
                 boxShadow: "0px 19px 36px #0000001F",
               }}
             >
-              <div className="h-[310px] flex items-center justify-center">
+              <div className="h-[250px] md:h-[310px] flex items-center justify-center overflow-hidden">
                 <img
                   src={tool.img}
-                  className={tool.imgClass}
+                  className={`${tool.imgClass} max-h-[100%] w-auto object-contain`}
                   alt={tool.title}
                 />
               </div>
-              <div className="flex flex-col px-7 mt-2">
-                <span className="text-black text-[26px] font-bold mb-3">{tool.title}</span>
-                <span className="text-[#666666] text-[18px] font-medium leading-snug mb-5 h-[84px]">
+              <div className="flex flex-col px-5 md:px-7 mt-2">
+                <span className="text-black text-[20px] md:text-[26px] font-bold mb-3">{tool.title}</span>
+                <span className="text-[#666666] text-[14px] md:text-[18px] font-medium leading-snug mb-5 h-auto md:h-[84px]">
                   {tool.desc}
                 </span>
                 <div
@@ -139,7 +127,7 @@ export default function AiTravelBuddy() {
                   style={{ backgroundColor: tool.lineColor }}
                 />
                 <div className="flex items-center gap-2 group">
-                  <span className="text-[#F97211] text-[18px] font-semibold group-hover:underline">Learn More</span>
+                  <span className="text-[#F97211] text-[16px] md:text-[18px] font-semibold group-hover:underline">Learn More</span>
                   <svg className="w-4 h-4 text-[#F97211]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>

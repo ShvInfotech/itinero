@@ -114,16 +114,18 @@ export default function TrendingDestinations() {
             Most loved places by travelers around the world
           </span>
         </div>
-        <div className="flex shrink-0 items-center self-end md:self-auto">
+        <div className="flex w-full md:w-auto shrink-0 items-center justify-between md:justify-end">
           <span className="text-black text-[16px] md:text-xl font-medium mr-4 md:mr-[29px] cursor-pointer hover:underline">
             View All Destinations
           </span>
-          <button onClick={scrollLeft} className="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shadow-sm mr-2 md:mr-4 transition-colors">
-            <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-          </button>
-          <button onClick={scrollRight} className="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shadow-sm transition-colors">
-            <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-          </button>
+          <div className="flex items-center">
+            <button onClick={scrollLeft} className="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shadow-sm mr-2 md:mr-4 transition-colors">
+              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            </button>
+            <button onClick={scrollRight} className="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 shadow-sm transition-colors">
+              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
         </div>
         </div>
       </ScrollReveal>
