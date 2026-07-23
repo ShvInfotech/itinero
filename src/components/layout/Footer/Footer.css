@@ -6,8 +6,8 @@
 
 /* ── Shell ─────────────────────────────────────────────── */
 .footer {
-  background: #ffffff;
-  border-top: 1px solid #e8e8e8;
+  /* background: #ffffff; */
+  border-top: 1px solid #c4c4c4;
 }
 
 .footer__inner {
@@ -94,8 +94,8 @@
 }
 
 .footer__col-heading {
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #111;
@@ -103,7 +103,8 @@
 }
 
 .footer__col-link {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   color: #6b6a6a;
   text-decoration: none;
   line-height: 1.4;
@@ -125,7 +126,8 @@
   gap: 10px;
   text-decoration: none;
   color: #222;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1.5;
   transition: color 0.2s;
 }

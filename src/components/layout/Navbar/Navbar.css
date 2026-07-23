@@ -48,13 +48,18 @@
 .navbar__logo {
   display: flex;
   align-items: center;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+.navbar--scrolled .navbar__logo {
   margin-left: 40px;
 }
 
 .navbar__logo-icon {
   width: 40px;
   height: 40px;
-  margin-right: 51px;
+  margin-right: 26px;
   object-fit: contain;
   transition: transform var(--transition-base);
 }
@@ -202,8 +207,8 @@
   .navbar__inner {
     padding: 6px 0;
   }
-  .navbar__logo {
-    margin-left: 25px;
+  .navbar--scrolled .navbar__logo {
+    margin-left: 30px;
   }
   .navbar__logo-icon {
     width: 32px;
@@ -256,7 +261,7 @@
   .navbar--scrolled {
     padding: 8px 16px;
   }
-  .navbar__logo {
+  .navbar--scrolled .navbar__logo {
     margin-left: 20px;
   }
   .navbar__logo-icon {
@@ -271,7 +276,7 @@
   .navbar--scrolled {
     padding: 4px 16px;
   }
-  .navbar__logo {
+  .navbar--scrolled .navbar__logo {
     margin-left: 10px;
   }
   .navbar__logo-icon {

@@ -1,0 +1,984 @@
+.container {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F9FB;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+/* --- Hero Section --- */
+.heroSection {
+  position: relative;
+  background-color: #4B2735; /* Fallback for image */
+  background-image: linear-gradient(rgba(75, 39, 53, 0.6), rgba(75, 39, 53, 0.8)), url('https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  color: #FFF;
+  margin: 20px 20px 0 20px; /* Slight margin to match the card look of the header */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heroTitle {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 40px 0;
+  letter-spacing: -0.5px;
+}
+
+.searchSummaryBar {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 60px;
+  padding: 10px 10px 10px 30px;
+  justify-content: space-between;
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.summaryIcon {
+  color: #FFF;
+  display: flex;
+  align-items: center;
+}
+
+.summaryText {
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryLabel {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.summaryValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.summaryArrow {
+  color: #FFF;
+  opacity: 0.7;
+}
+
+.summaryDivider {
+  width: 1px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.changeSearchBtn {
+  background-color: #F97211;
+  color: #FFF;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.changeSearchBtn:hover {
+  background-color: #E06000;
+}
+
+/* --- Main Content Layout --- */
+.mainContent {
+  display: flex;
+  max-width: 1240px;
+  margin: 40px auto 0;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.leftColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rightColumn {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+/* --- Left Column: Header --- */
+.pageHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: -10px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #001439;
+  margin: 0;
+}
+
+.headerBadges {
+  display: flex;
+  gap: 12px;
+}
+
+.badgeRefundable {
+  background-color: #E8F5E9;
+  color: #22C55E;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.badgeBaggage {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #888;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* --- Flight Card --- */
+.flightCard {
+  background: #FFF;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.fcTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.airlineInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 200px;
+}
+
+.airlineLogoBox {
+  width: 44px;
+  height: 44px;
+  background: #F8F9FB;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #EBEBEB;
+}
+
+.airlineName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #001439;
+}
+
+.flightCode {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.flightTimeBlock {
+  text-align: center;
+}
+
+.timeLabel {
+  font-size: 24px;
+  font-weight: 800;
+  color: #001439;
+}
+
+.airportCode {
+  font-size: 14px;
+  font-weight: 700;
+  color: #001439;
+  margin-top: 4px;
+}
+
+.airportName {
+  font-size: 10px;
+  color: #888;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.flightGraphic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 0 40px;
+}
+
+.fgDuration {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.fgLineWrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.fgDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #F97211;
+}
+
+.fgDot:last-child {
+  background-color: #888;
+}
+
+.fgLine {
+  flex: 1;
+  height: 1px;
+  border-top: 2px dashed #E5E5E5;
+}
+
+.fgPlaneIcon {
+  margin: 0 10px;
+}
+
+.fgDirect {
+  font-size: 11px;
+  font-weight: 600;
+  color: #22C55E;
+  margin-top: 8px;
+}
+
+/* --- Widgets Grid --- */
+.widgetsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.widgetCard {
+  background: #FFF;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.widgetStack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.widgetCardMini {
+  background: #FFF;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.widgetTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #001439;
+  margin-bottom: 20px;
+}
+
+/* Timeline Widget */
+.timelineContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tlItem {
+  display: flex;
+  gap: 12px;
+}
+
+.tlTime {
+  font-size: 13px;
+  font-weight: 700;
+  color: #001439;
+  width: 40px;
+}
+
+.tlDotWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tlDotTop {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #F97211;
+  margin-top: 4px;
+}
+
+.tlDotBottom {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #F97211;
+  margin-top: 4px;
+}
+
+.tlContent {
+  flex: 1;
+}
+
+.tlCode {
+  font-size: 13px;
+  font-weight: 700;
+  color: #001439;
+}
+
+.tlCity {
+  font-weight: 400;
+  color: #888;
+  margin-left: 4px;
+}
+
+.tlDesc {
+  font-size: 10px;
+  color: #888;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.tlItemMiddle {
+  display: flex;
+  gap: 12px;
+  margin: 5px 0;
+}
+
+.tlEmpty {
+  width: 40px;
+}
+
+.tlLineWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 8px;
+}
+
+.tlLine {
+  height: 40px;
+  border-left: 2px dashed #E5E5E5;
+}
+
+.tlPlane {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg); /* down pointing plane */
+  color: #888;
+}
+
+.tlDuration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tlDurText {
+  font-size: 10px;
+  color: #888;
+}
+
+.tlDurSub {
+  font-size: 10px;
+  color: #A0A9B8;
+}
+
+/* Layover Widget */
+.layoverContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.layoverImagePlaceholder {
+  position: relative;
+  width: 100px;
+  height: 80px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layoverCircle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #F0F4FF;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.layoverImagePlaceholder svg {
+  position: relative;
+  z-index: 1;
+}
+
+.layoverTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #001439;
+}
+
+.layoverSub {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Mini Airport Widgets */
+.wmHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.wmTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #001439;
+}
+
+.wmSub {
+  font-size: 10px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.wmDataRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.wmLabel {
+  font-size: 9px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.wmValue {
+  font-size: 11px;
+  font-weight: 700;
+  color: #001439;
+}
+
+/* --- Features Bar --- */
+.featuresBar {
+  background: #FFF;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  display: flex;
+  justify-content: space-between;
+}
+
+.fbItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fbIconWrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FFF4ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fbLabel {
+  font-size: 9px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.fbValue {
+  font-size: 11px;
+  font-weight: 700;
+  color: #001439;
+}
+
+/* --- Tabs Container --- */
+.tabsContainer {
+  background: #FFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  overflow: hidden;
+}
+
+.tabsHeader {
+  display: flex;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.tabItem {
+  padding: 16px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  position: relative;
+}
+
+.tabActive {
+  color: #F97211;
+}
+
+.tabActive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #F97211;
+}
+
+.tabsContent {
+  padding: 24px;
+}
+
+.baggageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.bagItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bagIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFF4ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bagTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #001439;
+  margin-bottom: 4px;
+}
+
+.bagPiece {
+  font-size: 14px;
+  font-weight: 700;
+  color: #001439;
+  margin-bottom: 2px;
+}
+
+.bagWeight {
+  font-size: 11px;
+  color: #888;
+}
+
+/* --- Addons Grid --- */
+.addonsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.addonCard {
+  background: #FFF;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.addonHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #001439;
+  margin-bottom: 16px;
+}
+
+.addonContent {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.addonContentSeat {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.addonImage {
+  width: 60px;
+  height: 48px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.seatIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: #FFF4ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.addonDetails {
+  flex: 1;
+}
+
+.addonLabel {
+  font-size: 9px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.addonSelect {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #EBEBEB;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #001439;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.addonSeatVal {
+  font-size: 14px;
+  font-weight: 700;
+  color: #001439;
+  margin-bottom: 4px;
+}
+
+.addonSub {
+  font-size: 9px;
+  color: #888;
+}
+
+.btnOutline {
+  border: 1px solid #F97211;
+  color: #F97211;
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* --- Right Column: Sticky Sidebar --- */
+.stickySidebar {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fareSummaryCard {
+  background: #FFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  overflow: hidden;
+}
+
+.fsHeader {
+  background: #001439;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFF;
+}
+
+.fsTitle {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fsSelect {
+  background: #FFF;
+  color: #001439;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.fsBody {
+  padding: 20px;
+}
+
+.fsSectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #001439;
+  margin: 0 0 16px 0;
+}
+
+.fsRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.fsDivider {
+  height: 1px;
+  background-color: #EBEBEB;
+  margin: 16px 0;
+}
+
+.fsTotalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #001439;
+}
+
+.fsPriceBold {
+  color: #F97211;
+  font-size: 16px;
+}
+
+.insuranceBox {
+  margin-top: 16px;
+  background: #FAFAFA;
+  border: 1px solid #EBEBEB;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.insHeader {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.insTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #001439;
+  margin-bottom: 2px;
+}
+
+.insSub {
+  font-size: 9px;
+  color: #888;
+  line-height: 1.4;
+}
+
+.insShieldIcon {
+  margin-top: -4px;
+  margin-left: 4px;
+}
+
+.insAddBtn {
+  border: 1px solid #EBEBEB;
+  background: #FFF;
+  font-size: 10px;
+  font-weight: 600;
+  color: #001439;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.fsGrandTotalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #001439;
+  margin-bottom: 20px;
+}
+
+.fsGrandTotalRow .fsPriceBold {
+  font-size: 18px;
+}
+
+.bookNowBtn {
+  width: 100%;
+  background: #F97211;
+  color: #FFF;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 16px;
+}
+
+.bookNowBtn:hover {
+  background: #E06000;
+}
+
+.secureBooking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+}
+
+/* Trust Badges */
+.trustBadges {
+  background: #FFF;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.trustItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.trustIcon {
+  margin-bottom: 8px;
+}
+
+.trustTitle {
+  font-size: 9px;
+  font-weight: 700;
+  color: #001439;
+  line-height: 1.2;
+}
+
+.trustSub {
+  font-size: 9px;
+  color: #888;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .mainContent {
+    flex-direction: column;
+  }
+  .rightColumn {
+    width: 100%;
+  }
+  .widgetsGrid {
+    grid-template-columns: 1fr;
+  }
+  .featuresBar {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .baggageGrid {
+    grid-template-columns: 1fr;
+  }
+  .addonsGrid {
+    grid-template-columns: 1fr;
+  }
+  .searchSummaryBar {
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  .summaryDivider {
+    display: none;
+  }
+}

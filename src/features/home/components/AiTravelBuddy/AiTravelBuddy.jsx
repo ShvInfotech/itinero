@@ -69,10 +69,10 @@ export default function AiTravelBuddy() {
     <div className="flex flex-col self-stretch max-w-[1604px] mb-[100px] mx-auto gap-[30px] md:gap-[50px]">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center self-stretch px-4 md:px-[53px] gap-6 md:gap-0">
         <div className="flex flex-col shrink-0 items-start gap-2.5 w-full md:w-auto">
-          <span className="text-[#001438] text-[32px] md:text-[50px] font-bold leading-tight">
+          <span className="text-[#001438] text-[32px] md:text-[40px] lg:text-[36px] 2xl:text-[50px] font-bold leading-tight">
             Your Journey, Our Priority
           </span>
-          <span className="text-[#F97211] text-[16px] md:text-2xl font-medium w-full max-w-[595px]">
+          <span className="text-[#F97211] text-[16px] md:text-xl lg:text-[18px] 2xl:text-2xl font-medium w-full max-w-[595px]">
             Experience smarter travel planning with powerful tools, curated options & expert support.
           </span>
         </div>
@@ -110,25 +110,25 @@ export default function AiTravelBuddy() {
                 boxShadow: "0px 19px 36px #0000001F",
               }}
             >
-              <div className="h-[250px] md:h-[310px] flex items-center justify-center overflow-hidden">
+              <div className="h-[250px] lg:h-[180px] 2xl:h-[310px] flex items-center justify-center overflow-hidden">
                 <img
                   src={tool.img}
-                  className={`${tool.imgClass} max-h-[100%] w-auto object-contain`}
+                  className={`${tool.imgClass} max-h-[100%] max-w-[100%] w-auto object-contain transition-transform`}
                   alt={tool.title}
                 />
               </div>
-              <div className="flex flex-col px-5 md:px-7 mt-2">
-                <span className="text-black text-[20px] md:text-[26px] font-bold mb-3">{tool.title}</span>
-                <span className="text-[#666666] text-[14px] md:text-[18px] font-medium leading-snug mb-5 h-auto md:h-[84px]">
+              <div className="flex flex-col px-5 lg:px-5 2xl:px-7 mt-2 lg:mt-0 2xl:mt-2">
+                <span className="text-black text-[20px] lg:text-[18px] 2xl:text-[26px] font-bold mb-3 lg:mb-2 2xl:mb-3">{tool.title}</span>
+                <span className="text-[#666666] text-[14px] lg:text-[13px] 2xl:text-[18px] font-medium leading-snug mb-5 lg:mb-3 2xl:mb-5 h-auto lg:h-[60px] 2xl:h-[84px]">
                   {tool.desc}
                 </span>
                 <div
-                  className="w-[30px] h-1 mb-5 rounded-[50px]"
+                  className="w-[30px] h-1 mb-5 lg:mb-3 2xl:mb-5 rounded-[50px]"
                   style={{ backgroundColor: tool.lineColor }}
                 />
                 <div className="flex items-center gap-2 group">
-                  <span className="text-[#F97211] text-[16px] md:text-[18px] font-semibold group-hover:underline">Learn More</span>
-                  <svg className="w-4 h-4 text-[#F97211]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <span className="text-[#F97211] text-[16px] lg:text-[14px] 2xl:text-[18px] font-semibold group-hover:underline">Learn More</span>
+                  <svg className="w-4 h-4 lg:w-3.5 lg:h-3.5 2xl:w-4 2xl:h-4 text-[#F97211]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>

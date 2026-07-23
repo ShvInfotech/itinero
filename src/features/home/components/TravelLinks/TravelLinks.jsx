@@ -133,10 +133,10 @@ export default function TravelLinks() {
     <div className="flex flex-col items-start self-stretch max-w-[1604px] mb-16 md:mb-[120px] mx-auto px-4 md:px-[53px] w-full">
       <ScrollReveal delay={0.1}>
         <div className="flex flex-col items-start mb-6 md:mb-10 gap-1 md:gap-2.5">
-          <span className="text-[#001438] text-[28px] md:text-[50px] font-bold leading-tight">
+          <span className="text-[#001438] text-[28px] md:text-[40px] lg:text-[36px] 2xl:text-[50px] font-bold leading-tight">
             Start your travel planning here
           </span>
-          <span className="text-[#F97211] text-[16px] md:text-2xl font-medium">
+          <span className="text-[#F97211] text-[16px] md:text-xl lg:text-[18px] 2xl:text-2xl font-medium">
             Search flights, hotels & more
           </span>
         </div>

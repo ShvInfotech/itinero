@@ -96,10 +96,10 @@ export default function Testimonials() {
       <ScrollReveal delay={0.1}>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center self-stretch px-4 md:px-[53px]">
         <div className="flex flex-col shrink-0 items-start gap-1 mb-4 md:mb-0">
-          <span className="text-[#001438] text-[28px] md:text-[50px] font-bold leading-tight">
+          <span className="text-[#001438] text-[28px] md:text-[40px] lg:text-[36px] 2xl:text-[50px] font-bold leading-tight">
             Loved by Explorers
           </span>
-          <span className="text-[#F97211] text-[16px] md:text-2xl font-medium">
+          <span className="text-[#F97211] text-[16px] md:text-xl lg:text-[18px] 2xl:text-2xl font-medium">
             Real stories from real travellers who explored the world with Itinero.
           </span>
         </div>

@@ -13,7 +13,7 @@ import { Routes, Route } from "react-router-dom";
 
 // ── Lazy-loaded Page Components ──────────────────────────
 const HomePage = lazy(() => import("@/features/home"));
-// const FlightsPage = lazy(() => import("@/features/flights"));
+const FlightsPage = lazy(() => import("@/features/flights"));
 // const HotelsPage = lazy(() => import("@/features/hotels"));
 // const DestinationsPage = lazy(() => import("@/features/destinations"));
 // const DealsPage = lazy(() => import("@/features/deals"));
@@ -41,8 +41,8 @@ export default function AppRouter() {
     <Suspense fallback={<PageLoader />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* Uncomment routes as features are built:
         <Route path="/flights" element={<FlightsPage />} />
+        {/* Uncomment routes as features are built:
         <Route path="/hotels" element={<HotelsPage />} />
         <Route path="/destinations" element={<DestinationsPage />} />
         <Route path="/destinations/:id" element={<DestinationDetailPage />} />

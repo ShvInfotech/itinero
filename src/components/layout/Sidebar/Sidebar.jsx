@@ -6,14 +6,14 @@ const Sidebar = ({ isOpen, onClose }) => {
       {/* Overlay */}
       {isOpen && (
         <div 
-          className="fixed left-0 right-0 bottom-0 top-[74px] bg-black/30 z-[100]" 
+          className="fixed inset-0 bg-black/30 z-[98]" 
           onClick={onClose}
         ></div>
       )}
 
       {/* Sidebar Content */}
       <div 
-        className={`fixed top-[74px] bottom-0 left-0 w-[280px] max-w-[85vw] bg-white shadow-xl z-[101] transform transition-transform duration-300 ease-in-out flex flex-col ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`absolute top-[100%] left-0 w-[280px] h-[100vh] max-w-[85vw] bg-white shadow-xl z-[99] transform transition-transform duration-300 ease-in-out flex flex-col ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="flex-1 overflow-y-auto py-4">
           <ul className="flex flex-col">
