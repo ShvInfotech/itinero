@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import LoginModal from "../../../features/auth/components/LoginModal";
 import Switch from "../../ui/sky-toggle";
+import RegionalModal from "../../shared/RegionalModal";
 import "./Navbar.css";
 
 /**
@@ -11,6 +13,12 @@ import "./Navbar.css";
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("en-US");
+  const [selectedLanguageFlag, setSelectedLanguageFlag] = useState("https://flagcdn.com/w40/us.png");
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+  const [selectedCurrencySymbol, setSelectedCurrencySymbol] = useState("$");
+  const [defaultRegionalTab, setDefaultRegionalTab] = useState("language");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -49,51 +57,137 @@ export default function Navbar() {
                 alt="Menu"
               />
             </button>
-            <a href="">
+            <Link to="/">
 
             <img
               src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/hurs0BoZOo/5mm2143s_expires_30_days.png"
               className="navbar__logo-text"
               alt="Itinero Logo"
             />
-            </a>
+            </Link>
           </div>
 
           {/* Flexible spacer */}
           <div className="navbar__spacer"></div>
 
-          {/* Language / Currency Switcher */}
-          <div className="hidden md:flex items-center gap-2 px-4 py-2 mx-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-            <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">USD</span>
+          {/* Currency Switcher */}
+          <button 
+            onClick={() => {
+              setDefaultRegionalTab('currency');
+              setIsLanguageModalOpen(true);
+            }}
+            style={{
+              fontSize: '20px',
+              fontWeight: 700,
+              color: '#001439',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '8px 12px',
+              marginRight: '8px'
+            }}
+            className="hidden md:block dark:text-white hover:opacity-80 transition"
+          >
+            {selectedCurrency}
+          </button>
+
+          {/* Language Switcher */}
+          <button 
+            onClick={() => {
+              setDefaultRegionalTab('language');
+              setIsLanguageModalOpen(true);
+            }}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: '12px'
+            }}
+            className="hidden md:flex hover:scale-105 transition"
+          >
             <img 
-              src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/hurs0BoZOo/cbhq3fu3_expires_30_days.png" 
-              alt="Dropdown" 
-              className="w-3 h-3 opacity-60 dark:invert"
+              src={selectedLanguageFlag} 
+              alt="Selected Language Flag" 
+              style={{
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                boxShadow: '0px 1px 3px rgba(0,0,0,0.15)'
+              }}
             />
-          </div>
+          </button>
 
           {/* Theme Toggle */}
-          <div className="mx-2 md:mx-4 flex items-center">
+          <div className="flex items-center" style={{ marginRight: '16px' }}>
             <Switch isDarkMode={isDarkMode} onToggle={() => setIsDarkMode(!isDarkMode)} />
           </div>
 
           {/* Primary action button */}
           <button
-            className="navbar__action-btn"
             onClick={() => setIsLoginModalOpen(true)}
             aria-label="Account menu"
+            style={{
+              width: '46px',
+              height: '46px',
+              borderRadius: '50%',
+              background: '#001439',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: 'none',
+              cursor: 'pointer',
+              boxShadow: '0px 2px 5px rgba(0,0,0,0.15)'
+            }}
+            className="hover:opacity-90 hover:scale-105 transition"
           >
-            <img
-              src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/hurs0BoZOo/92plxgrv_expires_30_days.png"
-              className="navbar__action-icon"
-              alt="Menu"
-            />
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
           </button>
 
         </div>
-        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+        <Sidebar 
+          isOpen={isSidebarOpen} 
+          onClose={() => setIsSidebarOpen(false)} 
+          selectedLanguage={selectedLanguage}
+          selectedLanguageFlag={selectedLanguageFlag}
+          selectedCurrency={selectedCurrency}
+          selectedCurrencySymbol={selectedCurrencySymbol}
+          onOpenCurrencyModal={() => {
+            setDefaultRegionalTab('currency');
+            setIsLanguageModalOpen(true);
+            setIsSidebarOpen(false);
+          }}
+          onOpenLanguageModal={() => {
+            setDefaultRegionalTab('language');
+            setIsLanguageModalOpen(true);
+            setIsSidebarOpen(false);
+          }}
+        />
       </nav>
       <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
+      
+      <RegionalModal 
+        isOpen={isLanguageModalOpen}
+        onClose={() => setIsLanguageModalOpen(false)}
+        defaultTab={defaultRegionalTab}
+        selectedLanguage={selectedLanguage}
+        onSelectLanguage={(code, flag) => {
+          setSelectedLanguage(code);
+          setSelectedLanguageFlag(flag);
+        }}
+        selectedCurrency={selectedCurrency}
+        onSelectCurrency={(code, symbol) => {
+          setSelectedCurrency(code);
+          setSelectedCurrencySymbol(symbol);
+        }}
+      />
     </>
   );
 }

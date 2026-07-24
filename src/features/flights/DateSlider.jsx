@@ -3,24 +3,41 @@ import { Calendar } from "lucide-react";
 import styles from "./FlightsPage.module.css";
 import PriceCalendarModal from "./PriceCalendarModal";
 
-const DATES_MOCK = [
-  { dateStr: "Fri, 18 Jul", price: "₹5,812" },
-  { dateStr: "Sat, 19 Jul", price: "₹5,290" },
-  { dateStr: "Sun, 20 Jul", price: "₹5,925" },
-  { dateStr: "Mon, 21 Jul", price: "₹5,762" },
-  { dateStr: "Tue, 22 Jul", price: "₹6,349" },
-  { dateStr: "Wed, 23 Jul", price: "₹4,290", isGreen: true },
-  { dateStr: "Thu, 24 Jul", price: "₹6,227" },
-  { dateStr: "Fri, 25 Jul", price: "₹5,500" },
-  { dateStr: "Sat, 26 Jul", price: "₹5,100", isGreen: true },
-  { dateStr: "Sun, 27 Jul", price: "₹6,000" },
-  { dateStr: "Mon, 28 Jul", price: "₹4,900", isGreen: true },
-  { dateStr: "Tue, 29 Jul", price: "₹6,500" },
-];
+const getDynamicDates = () => {
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  
+  const dates = [];
+  const today = new Date();
+  
+  // Generate starting from 2 days ago (-2) to 12 days in the future (total 15 days)
+  for (let i = -2; i < 13; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+    
+    const dayName = daysOfWeek[d.getDay()];
+    const dayVal = d.getDate();
+    const monthName = months[d.getMonth()];
+    
+    // Deterministic price based on the date so it doesn't change every render
+    const priceNum = 4200 + ((dayVal * 73) % 2500);
+    const isGreen = priceNum < 5200;
+    
+    dates.push({
+      dateStr: `${dayName}, ${dayVal} ${monthName}`,
+      price: `₹${priceNum.toLocaleString('en-IN')}`,
+      isGreen,
+      isPastDate: i < 0
+    });
+  }
+  return dates;
+};
+
+const DATES_MOCK = getDynamicDates();
 
 export default function DateSlider() {
   const [startIndex, setStartIndex] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(3); // Mon, 21 Jul as default
+  const [activeIndex, setActiveIndex] = useState(2); // Today (index 2) as default
   const [visibleCount, setVisibleCount] = useState(7);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
@@ -59,14 +76,11 @@ export default function DateSlider() {
         <div className={styles["fl-sidebar-filters"]}>
           <div className={styles["fl-row11"]}>
             <div
-              className={styles["fl-icon12"]}
+              className={`${styles["fl-icon12"]} ${styles["date-nav-prev"]}`}
               onClick={handlePrev}
               style={{ 
                 cursor: startIndex === 0 ? 'default' : 'pointer', 
-                opacity: startIndex === 0 ? 0.5 : 1,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                border: '1px solid #E5E5E5', borderRadius: '50%',
-                width: '38px', height: '38px', marginRight: '30px'
+                opacity: startIndex === 0 ? 0.5 : 1
               }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#001439" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -106,14 +120,11 @@ export default function DateSlider() {
             })}
 
             <div
-              className={styles["fl-icon13"]}
+              className={`${styles["fl-icon13"]} ${styles["date-nav-next"]}`}
               onClick={handleNext}
               style={{ 
                 cursor: startIndex >= maxIndex ? 'default' : 'pointer', 
-                opacity: startIndex >= maxIndex ? 0.5 : 1,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                border: '1px solid #E5E5E5', borderRadius: '50%',
-                width: '38px', height: '38px', marginLeft: '30px'
+                opacity: startIndex >= maxIndex ? 0.5 : 1
               }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#001439" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

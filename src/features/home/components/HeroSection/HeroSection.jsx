@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollReveal from "../../../../components/ScrollReveal";
 import SharedFlightSearchBar from "@/components/SharedFlightSearchBar";
+import SharedHotelSearchBar from "@/components/SharedHotelSearchBar/SharedHotelSearchBar";
 
 export default function HeroSection() {
   const [activeSearchTab, setActiveSearchTab] = useState("Flights");
@@ -53,6 +54,9 @@ export default function HeroSection() {
 
       {activeSearchTab === "Flights" && (
         <SharedFlightSearchBar />
+      )}
+      {activeSearchTab === "Hotels" && (
+        <SharedHotelSearchBar />
       )}
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
@@ -33,7 +34,7 @@ export default function FlightSearchAnimation({ from, to, onComplete }) {
     };
   }, [onComplete]);
 
-  return (
+  return createPortal(
     <AnimatePresence>
       <motion.div
         className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
@@ -165,6 +166,7 @@ export default function FlightSearchAnimation({ from, to, onComplete }) {
           </motion.p>
         </div>
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

@@ -7,7 +7,7 @@ import DateSlider from "./DateSlider";
 import SidebarLetVeroFilter from "./SidebarLetVeroFilter";
 import SidebarPriceGraph from "./SidebarPriceGraph";
 import SidebarFilters from "./SidebarFilters";
-import { Star, IndianRupee, Clock, ChevronDown } from 'lucide-react';
+import { Star, IndianRupee, Clock, ChevronDown, SlidersHorizontal, X } from 'lucide-react';
 import styles from './FlightsPage.module.css';
 
 /**
@@ -42,6 +42,7 @@ const SortButton = ({ id, label, Icon, currentSort, onClick }) => {
  */
 export default function FlightsPage() {
   const [sortBy, setSortBy] = useState('recommended');
+  const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
 
   return (
     <PageLayout>
@@ -62,7 +63,7 @@ export default function FlightsPage() {
           {/* Main content area: Sidebar + Results */}
           <div className={styles["fl-row12"]}>
             
-            {/* Sidebar Columns */}
+            {/* Sidebar Columns (hidden on mobile via CSS) */}
             <aside className={styles["fl-sidebar-column"]}>
               <SidebarLetVeroFilter />
               <SidebarPriceGraph />
@@ -110,6 +111,15 @@ export default function FlightsPage() {
                   <span className={styles["fl-text47"]}>Sort by</span>
                   <ChevronDown size={16} color="#888888" />
                 </button>
+
+                {/* Mobile Filters Button */}
+                <button 
+                  className={styles["fl-mobile-filter-btn"]}
+                  onClick={() => setIsFilterDrawerOpen(true)}
+                >
+                  <SlidersHorizontal size={16} />
+                  <span>Filters</span>
+                </button>
               </header>
               
               {/* Flight Cards List */}
@@ -123,6 +133,36 @@ export default function FlightsPage() {
           </div>
         </div>
       </div>
+
+      {/* Mobile Filter Drawer - Full Screen Overlay */}
+      {isFilterDrawerOpen && (
+        <div className={styles["filter-drawer-overlay"]} onClick={() => setIsFilterDrawerOpen(false)}>
+          <div className={styles["filter-drawer"]} onClick={(e) => e.stopPropagation()}>
+            <div className={styles["filter-drawer-header"]}>
+              <h3 className={styles["filter-drawer-title"]}>Filters</h3>
+              <button 
+                className={styles["filter-drawer-close"]}
+                onClick={() => setIsFilterDrawerOpen(false)}
+              >
+                <X size={22} />
+              </button>
+            </div>
+            <div className={styles["filter-drawer-body"]}>
+              <SidebarLetVeroFilter />
+              <SidebarPriceGraph />
+              <SidebarFilters />
+            </div>
+            <div className={styles["filter-drawer-footer"]}>
+              <button 
+                className={styles["filter-drawer-apply"]}
+                onClick={() => setIsFilterDrawerOpen(false)}
+              >
+                Apply Filters
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </PageLayout>
   );
 }

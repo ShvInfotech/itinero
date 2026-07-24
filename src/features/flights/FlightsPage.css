@@ -11,7 +11,7 @@
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  border-radius: 20px;
+  border-radius: 12px;
   margin: 24px auto 0;
 }
 .fp-hero__bg {
@@ -59,7 +59,7 @@
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 8px 8px 8px 16px;
   flex-wrap: wrap;
 }
@@ -69,7 +69,7 @@
   gap: 6px;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 6px 14px;
   cursor: pointer;
   flex-shrink: 0;
@@ -272,7 +272,7 @@
 .fp-vero {
   background: #fff;
   border: 2px solid #F97316;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 20px;
   overflow: hidden;
 }
@@ -321,7 +321,7 @@
   background: #F97316;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -334,7 +334,7 @@
 /* Book Now Card */
 .fp-book-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 16px 20px;
   border: 1px solid #E5E7EB;
 }
@@ -356,7 +356,7 @@
 /* Track Prices */
 .fp-track {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 16px 20px;
   border: 1px solid #E5E7EB;
 }
@@ -384,7 +384,7 @@
 /* Filters */
 .fp-filters {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 20px;
   border: 1px solid #E5E7EB;
 }
@@ -469,7 +469,7 @@
   gap: 8px;
   padding: 8px 12px;
   border: 1px solid #E5E7EB;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 10px;
 }
 .fp-filter-section__search-input {
@@ -567,7 +567,7 @@
   gap: 4px;
   padding: 8px 16px;
   border: 1px solid #E5E7EB;
-  border-radius: 20px;
+  border-radius: 12px;
   background: #fff;
   font-size: 13px;
   font-weight: 500;
@@ -594,7 +594,7 @@
 /* ── Flight Card ─────────────────────────────────────── */
 .fp-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid #E5E7EB;
   overflow: hidden;
   position: relative;
@@ -634,7 +634,7 @@
   width: 80px;
   height: 80px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #F9FAFB;
   padding: 4px;
 }
@@ -761,7 +761,7 @@
   background: #F97316;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;

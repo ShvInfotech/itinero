@@ -5,6 +5,11 @@
 @import "./styles/animations.css";
 @import "./styles/responsive.css";
 @import "./styles/utilities.css";
+
+@theme {
+  --font-sans: "TT Hoves Pro Trial Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 html {
   scroll-behavior: smooth;
 }  

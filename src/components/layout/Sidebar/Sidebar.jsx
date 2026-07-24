@@ -1,6 +1,15 @@
 import React from 'react';
 
-const Sidebar = ({ isOpen, onClose }) => {
+const Sidebar = ({ 
+  isOpen, 
+  onClose,
+  selectedLanguage = "en-US",
+  selectedLanguageFlag = "https://flagcdn.com/w40/us.png",
+  selectedCurrency = "USD",
+  selectedCurrencySymbol = "$",
+  onOpenCurrencyModal,
+  onOpenLanguageModal
+}) => {
   return (
     <>
       {/* Overlay */}
@@ -60,16 +69,31 @@ const Sidebar = ({ isOpen, onClose }) => {
             <div className="border-t border-[#E8EDF2] my-2 mx-4"></div>
             
             <li className="px-4 py-1">
-              <a href="#" className="flex items-center space-x-4 px-4 py-3 text-[#637588] hover:bg-[#F0F4F8] rounded-md font-medium text-[15px] transition-colors">
-                <span className="text-xl leading-none w-5 text-center">🇮🇳</span>
-                <span>English</span>
-              </a>
+              <button 
+                onClick={onOpenLanguageModal}
+                className="w-full flex items-center space-x-4 px-4 py-3 text-[#637588] hover:bg-[#F0F4F8] rounded-md font-medium text-[15px] transition-colors text-left"
+              >
+                <img 
+                  src={selectedLanguageFlag} 
+                  alt="Language Flag" 
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    objectFit: 'cover'
+                  }} 
+                />
+                <span>{selectedLanguage === "en-US" ? "English" : selectedLanguage}</span>
+              </button>
             </li>
             <li className="px-4 py-1">
-              <a href="#" className="flex items-center space-x-4 px-4 py-3 text-[#637588] hover:bg-[#F0F4F8] rounded-md font-medium text-[15px] transition-colors">
-                <span className="text-[20px] font-medium leading-none w-5 text-center">₹</span>
-                <span>Indian rupee</span>
-              </a>
+              <button 
+                onClick={onOpenCurrencyModal}
+                className="w-full flex items-center space-x-4 px-4 py-3 text-[#637588] hover:bg-[#F0F4F8] rounded-md font-medium text-[15px] transition-colors text-left"
+              >
+                <span className="text-[20px] font-medium leading-none w-6 text-center text-[#111418]">{selectedCurrencySymbol}</span>
+                <span>{selectedCurrency}</span>
+              </button>
             </li>
             <li className="px-4 py-1">
               <a href="#" className="flex items-center space-x-4 px-4 py-3 text-[#637588] hover:bg-[#F0F4F8] rounded-md font-medium text-[15px] transition-colors">

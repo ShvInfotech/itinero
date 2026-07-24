@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Plane, Briefcase, Luggage, ChevronDown, ChevronUp, Heart,
   Wifi, Tv, Wine
@@ -137,6 +138,7 @@ function FlightSegment({ segment, defaultFlightNumber, styles }) {
  * - Expanding details panel with multiple tabs.
  */
 export default function FlightCardDesign({ flight, styles }) {
+  const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('flight');
   
@@ -172,7 +174,19 @@ export default function FlightCardDesign({ flight, styles }) {
         <div className={styles["fc-airline-col"]}>
           <AirlineLogo name={airlineName} url={airlineLogo} styles={styles} />
           <div className={styles["fc-airline-info"]}>
-            <h4 className={styles["fc-airline-name"]}>{airlineName}</h4>
+            <h4 
+              className={styles["fc-airline-name"]} 
+              onClick={() => navigate('/flights/overview')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  navigate('/flights/overview');
+                }
+              }}
+            >
+              {airlineName}
+            </h4>
             <p className={styles["fc-flight-no"]}>{flightNumber}</p>
           </div>
         </div>
@@ -235,7 +249,7 @@ export default function FlightCardDesign({ flight, styles }) {
             <span className={styles["fc-price-person"]}>&nbsp;/ person</span>
           </div>
           <div className={styles["fc-price-actions"]}>
-            <button className={styles["fc-btn-book"]} onClick={() => alert("Booking...")}>
+            <button className={styles["fc-btn-book"]} onClick={() => navigate('/flights/passenger-info')}>
               Book Now
             </button>
             <button 
