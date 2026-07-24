@@ -1,0 +1,188 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.viewAllBtn {
+  background: transparent;
+  border: none;
+  color: #F97211;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.viewAllBtn:hover {
+  text-decoration: underline;
+}
+
+.reviewsGrid {
+  display: flex;
+  gap: 32px;
+}
+
+.ratingBreakdown {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.overallRating {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ratingScore {
+  width: 64px;
+  height: 64px;
+  background-color: #128839;
+  color: #FFF;
+  font-size: 28px;
+  font-weight: 700;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ratingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ratingText {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+
+.stars {
+  display: flex;
+  color: #FF8F00;
+  font-size: 14px;
+}
+
+.reviewsCount {
+  font-size: 13px;
+  color: #666;
+}
+
+.barsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.barLabel {
+  width: 70px;
+  font-size: 12px;
+  color: #555;
+}
+
+.barTrack {
+  flex: 1;
+  height: 6px;
+  background-color: #F0F0F0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background-color: #128839;
+  border-radius: 3px;
+}
+
+.barPercent {
+  width: 30px;
+  font-size: 12px;
+  color: #555;
+  text-align: right;
+}
+
+.reviewsList {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewerInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.reviewerName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.reviewDate {
+  font-size: 12px;
+  color: #888;
+}
+
+.reviewStars {
+  display: flex;
+  color: #FF8F00;
+  font-size: 12px;
+}
+
+.reviewText {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .reviewsGrid {
+    flex-direction: column;
+  }
+}

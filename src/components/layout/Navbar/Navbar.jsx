@@ -10,7 +10,7 @@ import "./Navbar.css";
  * Top navigation bar — uses Navbar.css class system
  * with built-in responsive breakpoints (1440 / 1024 / 768 / 480).
  */
-export default function Navbar() {
+export default function Navbar({ centerContent = null }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
@@ -66,6 +66,16 @@ export default function Navbar() {
             />
             </Link>
           </div>
+
+          {/* Flexible spacer */}
+          <div className="navbar__spacer"></div>
+
+          {/* Center Content */}
+          {centerContent && (
+            <div className="navbar__centerContent hidden lg:flex" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+              {centerContent}
+            </div>
+          )}
 
           {/* Flexible spacer */}
           <div className="navbar__spacer"></div>

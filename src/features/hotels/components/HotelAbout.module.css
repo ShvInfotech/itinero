@@ -1,0 +1,37 @@
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.readMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #F97211;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.readMoreBtn:hover {
+  text-decoration: underline;
+}

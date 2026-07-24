@@ -1,0 +1,127 @@
+.card {
+  background: #FFF;
+  border: 1px solid #EBEBEB;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bestPrice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.shieldIcon {
+  color: #128839;
+}
+
+.bestPriceText {
+  font-size: 14px;
+  font-weight: 700;
+  color: #128839;
+}
+
+.dateInputs {
+  display: flex;
+  gap: 12px;
+}
+
+.inputGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 11px;
+  color: #666;
+  font-weight: 500;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #DDD;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #FFF;
+  cursor: pointer;
+}
+
+.dateText, .guestsText {
+  font-size: 13px;
+  color: #000;
+  font-weight: 500;
+}
+
+.calendarIcon, .chevronIcon {
+  color: #666;
+}
+
+.guestsInput {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.priceSection {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1;
+}
+
+.perNight {
+  font-size: 13px;
+  color: #555;
+}
+
+.totalPrice {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.bookBtn {
+  background: #F97211;
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.bookBtn:hover {
+  background: #E56400;
+}
+
+.freeCancellation {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #128839;
+}

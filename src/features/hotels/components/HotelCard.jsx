@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../HotelsPage.module.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const HotelCard = ({ hotel }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
   const images = hotel.images || [hotel.image];
 
   const nextImage = (e) => {
@@ -17,8 +19,13 @@ export const HotelCard = ({ hotel }) => {
     e.stopPropagation();
     setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
+
+  const handleCardClick = () => {
+    navigate(`/hotel/${hotel.id}`);
+  };
+
   return (
-    <div className={styles.hotelCard}>
+    <div className={styles.hotelCard} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       {/* Image Section */}
       <div className={styles.hotelImageWrapper}>
         <div className={styles.imageBadgeTopLeft}>Free cancellation</div>
@@ -45,7 +52,11 @@ export const HotelCard = ({ hotel }) => {
           </>
         )}
         {/* Favorite Icon */}
-        <button className={styles.favoriteBtn} aria-label="Save hotel">
+        <button 
+          className={styles.favoriteBtn} 
+          aria-label="Save hotel"
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+        >
           <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 18L8.55 16.68C3.4 12.02 0 8.94 0 5.12C0 2.24 2.24 0 5.12 0C6.75 0 8.32 0.77 9.28 2.02C9.48 2.28 9.73 2.28 9.93 2.02C10.89 0.77 12.46 0 14.09 0C16.97 0 19.21 2.24 19.21 5.12C19.21 8.94 15.81 12.02 10.66 16.69L10 18Z" fill="#242A31" fillOpacity="0.4"/>
           </svg>

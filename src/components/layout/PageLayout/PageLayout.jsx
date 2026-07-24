@@ -11,12 +11,13 @@ export default function PageLayout({
   showNavbar = true,
   showFooter = true,
   className = "",
+  centerContent = null,
   children,
 }) {
   return (
     <div className="flex flex-col bg-white">
       <div className="self-stretch bg-[#F2F2F2]">
-        {showNavbar && <Navbar />}
+        {showNavbar && <Navbar centerContent={centerContent} />}
 
         <main className={className}>
           {children}

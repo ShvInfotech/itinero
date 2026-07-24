@@ -1,0 +1,290 @@
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-top: 40px;
+  isolation: isolate; /* Creates a stacking context so negative z-index doesn't hide behind parent backgrounds */
+}
+
+.heroContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: calc(100% - 80px);
+  background-image: url('/itinero/hotel_bg.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.heroContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: calc(100% - 80px);
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hotelName {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFF;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars {
+  display: flex;
+  color: #FF8F00;
+  font-size: 16px;
+  gap: 2px;
+}
+
+.ratingBadge {
+  background-color: #128839;
+  color: #FFF;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.ratingText {
+  font-weight: 700;
+  font-size: 15px;
+  color: #FFF;
+}
+
+.reviewsText {
+  font-size: 14px;
+  color: #DDD;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #FFF;
+}
+
+.icon {
+  color: #FFF;
+}
+
+.dot {
+  color: #AAA;
+}
+
+.excellentLocation {
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.quickAmenities {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.amenityItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #FFF;
+}
+
+.moreAmenities {
+  font-size: 13px;
+  color: #DDD;
+  font-weight: 500;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  height: 220px;
+}
+
+.galleryImageWrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryImageWrapper:hover .galleryImage {
+  transform: scale(1.08);
+}
+
+.viewMoreOverlay {
+  cursor: pointer;
+}
+
+.viewMoreOverlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 22, 48, 0.7); /* Dark blue overlay */
+  transition: background-color 0.2s ease;
+  z-index: 1;
+}
+
+.viewMoreOverlay:hover::after {
+  background-color: rgba(11, 22, 48, 0.85);
+}
+
+.viewMoreContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: white;
+  z-index: 2;
+  width: 100%;
+}
+
+.viewMoreNumber {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.viewMoreText {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Lightbox Modal */
+.lightboxOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.lightboxClose:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lightboxPrev,
+.lightboxNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.lightboxPrev:hover,
+.lightboxNext:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightboxPrev {
+  left: 40px;
+}
+
+.lightboxNext {
+  right: 40px;
+}
+
+.lightboxImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+  
+  .galleryImageWrapper {
+    height: 120px;
+  }
+  
+  /* Hide middle images on mobile to fit the 2x2 grid well */
+  .galleryImageWrapper:nth-child(3),
+  .galleryImageWrapper:nth-child(4) {
+    display: none;
+  }
+}

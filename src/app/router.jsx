@@ -19,6 +19,10 @@ const FlightOverviewPage = lazy(() => import("@/features/flights/FlightOverviewP
 const PassengerInfoPage = lazy(() => import("@/features/flights/PassengerInfoPage"));
 const FlightBookingSuccessPage = lazy(() => import("@/features/flights/FlightBookingSuccessPage"));
 const HotelsPage = lazy(() => import("@/features/hotels"));
+const HotelDetailPage = lazy(() => import("@/features/hotels/HotelDetailPage"));
+const HotelBookingPage = lazy(() => import("@/features/hotels/HotelBookingPage"));
+const HotelGuestDetailsPage = lazy(() => import("@/features/hotels/HotelGuestDetailsPage"));
+const HotelConfirmationPage = lazy(() => import("@/features/hotels/HotelConfirmationPage"));
 // const DestinationsPage = lazy(() => import("@/features/destinations"));
 // const DealsPage = lazy(() => import("@/features/deals"));
 // const BookingPage = lazy(() => import("@/features/booking"));
@@ -51,6 +55,10 @@ export default function AppRouter() {
         <Route path="/flights/passenger-info" element={<PassengerInfoPage />} />
         <Route path="/flights/booking-success" element={<FlightBookingSuccessPage />} />
         <Route path="/hotels" element={<HotelsPage />} />
+        <Route path="/hotel/:id" element={<HotelDetailPage />} />
+        <Route path="/hotel/:id/booking" element={<HotelBookingPage />} />
+        <Route path="/hotel/:id/guest-details" element={<HotelGuestDetailsPage />} />
+        <Route path="/hotel/:id/confirmation" element={<HotelConfirmationPage />} />
         {/* Uncomment routes as features are built:
         <Route path="/destinations" element={<DestinationsPage />} />
         <Route path="/destinations/:id" element={<DestinationDetailPage />} />
